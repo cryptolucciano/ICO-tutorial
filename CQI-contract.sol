@@ -1,11 +1,11 @@
 pragma solidity ^0.4.18;
 
 // ----------------------------------------------------------------------------
-// 'bitfwd' CROWDSALE token contract
+// 'Coquí' CROWDSALE token contract
 //
-// Deployed to : 0xD0FDf2ECd4CadE671a7EE1063393eC0eB90816FD
-// Symbol      : FWD
-// Name        : bitfwd Token
+// Deployed to : 0x3a0d592ba5951c903c79271d8cca4f7eacf0860b
+// Symbol      : CQI
+// Name        : Coqui Token
 // Total supply: Gazillion
 // Decimals    : 18
 //
@@ -99,7 +99,7 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract bitfwdToken is ERC20Interface, Owned, SafeMath {
+contract CoquiToken is ERC20Interface, Owned, SafeMath {
     string public symbol;
     string public  name;
     uint8 public decimals;
@@ -115,12 +115,12 @@ contract bitfwdToken is ERC20Interface, Owned, SafeMath {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    function bitfwdToken() public {
-        symbol = "FWD";
-        name = "bitfwd Token";
+    function CoquiToken() public {
+        symbol = "CQI";
+        name = "Coqui Token";
         decimals = 18;
-        bonusEnds = now + 1 weeks;
-        endDate = now + 7 weeks;
+        bonusEnds = now + 4 weeks;
+        endDate = now + 12 weeks;
 
     }
 
@@ -209,13 +209,13 @@ contract bitfwdToken is ERC20Interface, Owned, SafeMath {
     }
 
     // ------------------------------------------------------------------------
-    // 1,000 FWD Tokens per 1 ETH
+    // 1,000 CQI Tokens per 1 ETH
     // ------------------------------------------------------------------------
     function () public payable {
         require(now >= startDate && now <= endDate);
         uint tokens;
         if (now <= bonusEnds) {
-            tokens = msg.value * 1200;
+            tokens = msg.value * 1500;
         } else {
             tokens = msg.value * 1000;
         }
